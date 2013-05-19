@@ -1,0 +1,15 @@
+name: FriendlyTP
+main: com.lamtrung.friendlytp.FriendlyTP
+author: lam@lamtrung.com
+website: http://lamtrung.com
+version: 1.0.0
+
+commands:
+  tele:
+    description: teles you
+  setfalse:
+    description: sets you to no
+  settrue:
+    description: sets you to yes
+  check:
+    description: checks your settings
