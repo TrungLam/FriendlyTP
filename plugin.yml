@@ -2,7 +2,7 @@ name: FriendlyTP
 main: com.lamtrung.friendlytp.FriendlyTP
 author: lam@lamtrung.com
 website: http://lamtrung.com
-version: 1.0.0
+version: 1.0.2
 
 commands:
   tele:
