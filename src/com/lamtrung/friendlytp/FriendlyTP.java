@@ -1,6 +1,6 @@
 package com.lamtrung.friendlytp;
 
-import org.bukkit.Color;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -34,11 +34,11 @@ public class FriendlyTP extends JavaPlugin implements Listener{
 						 boolean value = this.getConfig().getBoolean("players." + p.getName());
 						if (value) {
 							player.teleport(p.getLocation());
-							player.sendMessage(Color.GREEN + "You teleported to" + p.getName());
-							p.sendMessage(Color.GREEN + player.getName() + " teleported to you");
+							player.sendMessage(ChatColor.GREEN + "You teleported to" + p.getName());
+							p.sendMessage(ChatColor.GREEN + player.getName() + " teleported to you");
 						}
 						else
-							player.sendMessage(Color.GREEN + "Target player does not allow others to teleport or invalid player name");
+							player.sendMessage(ChatColor.GREEN + "Target player does not allow others to teleport or invalid player name");
 						break;
 					}
 				}
@@ -49,23 +49,23 @@ public class FriendlyTP extends JavaPlugin implements Listener{
 			Player player = (Player)sender;
 			this.getConfig().set("players." + player.getName(), true);
 			this.saveConfig();
-			player.sendMessage(Color.GREEN + "Players may teleport to you");
+			player.sendMessage(ChatColor.GREEN + "Players may teleport to you");
 		}
 		
 		if (cmd.getName().equalsIgnoreCase("setfalse")) {
 			Player player = (Player)sender;
 			this.getConfig().set("players." + player.getName(), false);
 			this.saveConfig();
-			player.sendMessage(Color.GREEN + "Players may not teleport to you");
+			player.sendMessage(ChatColor.GREEN + "Players may not teleport to you");
 		}
 		
 		if (cmd.getName().equalsIgnoreCase("check")) {
 			Player player = (Player)sender;
 			boolean value = this.getConfig().getBoolean("players." + player.getName());
 			if (value)
-				player.sendMessage(Color.GREEN + "Players may teleport to you");
+				player.sendMessage(ChatColor.GREEN + "Players may teleport to you");
 			else
-				player.sendMessage(Color.GREEN + "Players may not teleport to you");
+				player.sendMessage(ChatColor.GREEN + "Players may not teleport to you");
 		}
 		return false;
 	}
@@ -73,10 +73,10 @@ public class FriendlyTP extends JavaPlugin implements Listener{
 	@EventHandler
 	public void playerEnter(PlayerJoinEvent event) {
 		Player player = event.getPlayer();
-		player.sendMessage(Color.PURPLE + "/tele [playername] : teleports you to the location of the player if the player allows it");
-		player.sendMessage(Color.PURPLE + "/settrue : sets you to allow players to teleport to you");
-		player.sendMessage(Color.PURPLE + "/setfalse : sets you to not allow players to teleport to you");
-		player.sendMessage(Color.PURPLE + "/check : checks yours current settings");
+		player.sendMessage(ChatColor.LIGHT_PURPLE + "/tele [playername] : teleports you to the location of the player if the player allows it");
+		player.sendMessage(ChatColor.LIGHT_PURPLE + "/settrue : sets you to allow players to teleport to you");
+		player.sendMessage(ChatColor.LIGHT_PURPLE + "/setfalse : sets you to not allow players to teleport to you");
+		player.sendMessage(ChatColor.LIGHT_PURPLE + "/check : checks yours current settings");
 		boolean value = this.getConfig().getBoolean("players." + player.getName());
 		this.getConfig().set("players." + player.getName(), value);
 
